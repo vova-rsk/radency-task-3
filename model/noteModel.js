@@ -53,6 +53,16 @@ notesSchema.pre('save', function (next) {
     next();
 });
 
+notesSchema.pre('updateOne', function(next) {
+    const updateData = this._update;
+    
+    if (updateData.content) { 
+        updateData.dates = getIsoDateInterval(updateData.content);
+    }
+
+    next();
+});
+
 const Note = model('note', notesSchema);
 
 module.exports = Note;

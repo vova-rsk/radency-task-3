@@ -15,8 +15,8 @@ const MESSAGES = {
     INVALID_NAME_VALUE: 'Invalid Name value',
     INVALID_NAME_LENGTH: 'Name value does not meet minimum length (2 charaсters)',
     MISSING_CONTENT: 'Missing Content field',
-    INVALID_NAME_VALUE: 'Invalid Content value',
-    INVALID_NAME_LENGTH: 'Content value does not meet minimum length (2 charaсters)',
+    INVALID_CONTENT_VALUE: 'Invalid Content value',
+    INVALID_CONTENT_LENGTH: 'Content value does not meet minimum length (2 charaсters)',
     MISSING_CATEGORY: 'Missing Category field',
     INVALID_CATEGORY_VALUE: 'Invalid Category value',
  };

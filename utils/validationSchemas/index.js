@@ -1,3 +1,9 @@
-const noteDataSchema = require('./noteDataSchema');
+const addNoteDataSchema = require('./addNoteDataSchema');
+const updateNoteReqDataSchema = require('./updateNoteDataSchema');
+const noteIdSchema = require('./noteIdSchema');
 
-module.exports = {noteDataSchema};
+module.exports = {
+    addNoteDataSchema,
+    noteIdSchema,
+    updateNoteReqDataSchema
+};

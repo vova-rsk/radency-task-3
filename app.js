@@ -3,7 +3,7 @@ const logger = require('morgan');
 const cors = require('cors');
 require('dotenv').config();
 const notesRouter = require('./routes/notes');
-const { ERROR_MESSAGE } = require('./utils/messages');
+const { MESSAGES } = require('./utils/constants');
 
 const app = express();
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';
@@ -15,11 +15,11 @@ app.use(express.json());
 app.use('/notes', notesRouter);
 
 app.use((req, res) => {
-    res.status(404).json({ message: ERROR_MESSAGE.notFound });
+    res.status(404).json({ message: MESSAGES.NOT_FOUND });
 })
 
 app.use((err, req, res, next) => {
-    const { status = 500, message = ERROR_MESSAGE.serverError } = err;
+    const { status = 500, message = MESSAGES.SERVER_ERROR } = err;
 
   res.status(status).json({
     status: 'error',

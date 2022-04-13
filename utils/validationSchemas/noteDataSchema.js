@@ -16,7 +16,7 @@ const addNoteReqDataSchema = Joi.object({
         .trim()
         .valid(...Object.values(CATEGORIES))
         .messages({
-            'string.base': MESSAGES.INVALID_NAME_VALUE,
+            'string.base': MESSAGES.INVALID_CATEGORY_VALUE,
             'any.required': MESSAGES.MISSING_CATEGORY,
             'any.only': MESSAGES.INVALID_CATEGORY_VALUE
         }),
@@ -25,9 +25,9 @@ const addNoteReqDataSchema = Joi.object({
         .trim()
         .min(2)
         .messages({
-            'string.base': MESSAGES.INVALID_NAME_VALUE,
-            'any.required': MESSAGES.MISSING_NAME,
-            'string.min': MESSAGES.INVALID_NAME_LENGTH   
+            'string.base': MESSAGES.INVALID_CONTENT_VALUE,
+            'any.required': MESSAGES.MISSING_CONTENT,
+            'string.min': MESSAGES.INVALID_CONTENT_LENGTH   
         })
 });
 

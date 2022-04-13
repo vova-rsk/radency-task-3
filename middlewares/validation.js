@@ -24,7 +24,16 @@ const validation = (schema, validationTarget) => {
         throw createError(500, MESSAGES.SERVER_ERROR);
     }
 
-    if (validated.error) throw createError(400, validated.error.message);
+    if (validated.error) {
+      const message = validated.error.message;
+      let code = 400;
+
+      if (message === MESSAGES.NOT_FOUND) { 
+        code = 404;
+      }
+
+      throw createError(code, message);
+    };
 
     next();
   };

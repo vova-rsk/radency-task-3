@@ -1,3 +1,4 @@
 const addNote = require('./addNoteService');
+const updateNote = require('./updateNoteService');
 
-module.exports = { addNote };
+module.exports = { addNote, updateNote };

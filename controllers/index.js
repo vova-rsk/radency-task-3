@@ -3,7 +3,7 @@ const getNoteController = require('./notes/getNoteController');
 const addNoteController = require('./notes/addNoteController');
 const removeNoteController = require('./notes/removeNoteController');
 const updateNoteController = require('./notes/updateNoteController');
-const getNotesStatistics = require('./notes/getNotesStatistics');
+const getNotesStatisticController = require('./notes/getNotesStatisticController');
 
 module.exports = {
     getNotesListController,
@@ -11,5 +11,5 @@ module.exports = {
     addNoteController,
     removeNoteController,
     updateNoteController,
-    getNotesStatistics,
+    getNotesStatisticController,
 };

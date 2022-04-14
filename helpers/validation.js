@@ -1,5 +1,5 @@
 const createError = require('http-errors');
-const { MESSAGES, REQ_VALIDATION_TARGET } = require('../utils/constants');
+const { MESSAGES, REQ_VALIDATION_TARGET } = require('./constants');
 
 const validation = (schema, validationTarget) => {
   return async (req, res, next) => {

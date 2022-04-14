@@ -1,8 +1,8 @@
-const createError = require('http-errors');
-const Note = require('../model/noteModel');
-const createUrl = require('../utils/createUrl');
-const { MESSAGES } = require('../utils/constants');
 const {nanoid} = require('nanoid');
+const createError = require('http-errors');
+const Note = require('../model');
+const createUrl = require('../helpers/createUrl');
+const { MESSAGES } = require('../helpers/constants');
 
 const getStatistic = async (urlInfo) => { 
 

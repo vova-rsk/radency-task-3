@@ -1,15 +1,7 @@
-const addNote = require('./addNoteService');
-const updateNote = require('./updateNoteService');
-const removeNote = require('./removeNoteService');
-const getNote = require('./getNoteService');
-const getNotesList = require('./getNotesListService');
-const getStatistic = require('./getStatisticService');
+const controllers = require('./controllers');
+const middlewares = require('./middlewares/validationMiddlewares');
 
 module.exports = {
-    addNote,
-    updateNote,
-    removeNote,
-    getNote,
-    getNotesList,
-    getStatistic
+    controllers,
+    middlewares
 };

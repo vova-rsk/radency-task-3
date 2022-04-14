@@ -1,6 +1,6 @@
-const Note = require('../model/noteModel');
-const createUrl = require('../utils/createUrl');
-const datesTransform = require('../utils/datesTransform');
+const Note = require('../model');
+const createUrl = require('../helpers/createUrl');
+const datesTransform = require('../helpers/datesTransform');
 
 const addNote = async (urlInfo, noteData) => { 
     const { name, category, content } = noteData;

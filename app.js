@@ -3,8 +3,8 @@ const logger = require('morgan');
 const cors = require('cors');
 const path = require('path');
 require('dotenv').config();
-const notesRouter = require('./routes/notes');
-const { MESSAGES } = require('./utils/constants');
+const notesRouter = require('./routes');
+const { MESSAGES } = require('./helpers/constants');
 
 const app = express();
 const formatsLogger = app.get('env') === 'development' ? 'dev' : 'short';

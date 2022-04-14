@@ -1,9 +1,9 @@
-const { removeNote } = require('../../services');
+const repositories = require('../../repositories');
 
-const removeNoteController = async (req, res) => {
+const removeNote = async (req, res) => {
     const { id } = req.params;
     
-    await removeNote(id);
+    await repositories.removeNote(id);
     
     res.status(200).json({
         status: 'success',
@@ -12,4 +12,4 @@ const removeNoteController = async (req, res) => {
     });
 };
 
-module.exports = removeNoteController;
+module.exports = removeNote;

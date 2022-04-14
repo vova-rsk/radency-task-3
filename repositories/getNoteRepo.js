@@ -1,18 +1,18 @@
 const createError = require('http-errors');
-const Note = require('../model/noteModel');
-const { MESSAGES } = require('../utils/constants');
-const createUrl = require('../utils/createUrl');
-const datesTransform = require('../utils/datesTransform');
+const Note = require('../model');
+const { MESSAGES } = require('../helpers/constants');
+const createUrl = require('../helpers/createUrl');
+const datesTransform = require('../helpers/datesTransform');
 
-const updateNote = async (urlInfo, id, noteData) => {
+const getNote = async (urlInfo, id) => {
     const note = await Note
-        .findOneAndUpdate({ _id: id }, noteData, { new: true })
+        .findOne({ _id: id })
         .select({ updatedAt: 0 });
-    
+
     if (!note) { 
         throw createError(404, MESSAGES.NOT_FOUND);
     }
-    
+
     const updatedNote = {
         id: note._id,
         name:note.name,
@@ -26,4 +26,4 @@ const updateNote = async (urlInfo, id, noteData) => {
     return updatedNote;
 };
 
-module.exports = updateNote;
+module.exports = getNote;

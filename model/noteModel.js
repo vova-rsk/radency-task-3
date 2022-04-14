@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose');
 const path = require('path');
-const { CATEGORIES } =require('../utils/constants');
-const getIsoDateInterval = require('../utils/getDatesInterval');
+const { CATEGORIES } =require('../helpers/constants');
+const getIsoDateInterval = require('../helpers/getDatesInterval');
 
 const notesSchema = new Schema({
     name: {

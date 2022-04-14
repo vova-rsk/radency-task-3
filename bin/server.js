@@ -1,6 +1,6 @@
 require('colors');
 const mongoose = require('mongoose');
-const { MESSAGES } = require('../utils/constants');
+const { MESSAGES } = require('../helpers/constants');
 
 const app = require('../app');
 

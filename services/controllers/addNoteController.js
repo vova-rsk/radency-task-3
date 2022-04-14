@@ -1,12 +1,12 @@
-const services = require('../../services');
+const repositories = require('../../repositories');
 
-const addNoteController = async (req, res) => { 
+const addNote = async (req, res) => { 
     const urlInfo = {
         protocol: (req.connection.encrypted ? 'https' : 'http') + ':',
         host: req.headers.host
     };
 
-    const result = await services.addNote(urlInfo, req.body);
+    const result = await repositories.addNote(urlInfo, req.body);
 
     res.status(201).json({
         status: 'success',
@@ -15,4 +15,4 @@ const addNoteController = async (req, res) => {
     });
 };
 
-module.exports = addNoteController;
+module.exports = addNote;

@@ -1,12 +1,12 @@
-const {getNotesList} = require('../../services');
+const repositories = require('../../repositories');
 
-const getNotesListController = async (req, res) => {
+const getNotesStatistic = async (req, res) => {
     const urlInfo = {
         protocol: (req.connection.encrypted ? 'https' : 'http') + ':',
         host: req.headers.host
     };
 
-    const result = await getNotesList(urlInfo);
+    const result = await repositories.getStatistic(urlInfo);
     
     res.status(200).json({
         status: 'success',
@@ -15,4 +15,4 @@ const getNotesListController = async (req, res) => {
     });
 };
 
-module.exports = getNotesListController;
+module.exports = getNotesStatistic;

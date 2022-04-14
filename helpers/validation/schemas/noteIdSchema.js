@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { MESSAGES } = require('../constants');
+const { MESSAGES } = require('../../constants');
 
 const noteIdSchema = Joi.object({
     id: Joi.string()

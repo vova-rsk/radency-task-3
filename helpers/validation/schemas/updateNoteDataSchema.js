@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { MESSAGES, CATEGORIES, STATUS } = require('../constants');
+const { MESSAGES, CATEGORIES, STATUS } = require('../../constants');
 
 const updateNoteReqDataSchema = Joi.object()
     .keys({

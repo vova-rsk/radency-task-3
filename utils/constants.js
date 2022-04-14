@@ -11,6 +11,7 @@ const MESSAGES = {
     DB_CONNECTION_ERROR:'Cannot create connection to DB',
     NOT_FOUND: 'Not Found',
     BAD_REQUEST: 'Bad Request',
+    MISSING_FIELDS:'Missing fields',
     MISSING_NAME: 'Missing Name field',
     INVALID_NAME_VALUE: 'Invalid Name value',
     INVALID_NAME_LENGTH: 'Name value does not meet minimum length (2 charaсters)',

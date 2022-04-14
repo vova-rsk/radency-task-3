@@ -1,7 +1,8 @@
 const Joi = require('joi');
 const { MESSAGES, CATEGORIES } = require('../constants');
 
-const addNoteReqDataSchema = Joi.object({
+const addNoteReqDataSchema = Joi.object()
+    .keys({
     name: Joi.string()
         .required()
         .trim()
@@ -29,6 +30,10 @@ const addNoteReqDataSchema = Joi.object({
             'any.required': MESSAGES.MISSING_CONTENT,
             'string.min': MESSAGES.INVALID_CONTENT_LENGTH   
         })
-});
+    })
+    .length(3)
+    .messages({
+        'object.unknown': MESSAGES.BAD_REQUEST,
+    });
 
 module.exports = addNoteReqDataSchema;

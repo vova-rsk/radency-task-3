@@ -6,8 +6,8 @@ const noteIdSchema = Joi.object({
         .trim()
         .pattern(/^[a-f0-9]{24}$/)
         .messages({
-            'string.base': MESSAGES.NOT_FOUND,
-            'string.pattern.base': MESSAGES.NOT_FOUND
+            'string.base': MESSAGES.BAD_REQUEST,
+            'string.pattern.base': MESSAGES.BAD_REQUEST
         }),
 });
 

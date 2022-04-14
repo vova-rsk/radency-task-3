@@ -20,7 +20,8 @@ const getNote = async (urlInfo, id) => {
         category:note.category,
         content:note.content,
         dates:datesTransform(note.dates),
-        iconUrl: createUrl(urlInfo, note.icon) 
+        iconUrl: createUrl(urlInfo, note.icon),
+        status:note.status
     }
 
     return updatedNote;

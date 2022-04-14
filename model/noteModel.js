@@ -1,20 +1,21 @@
 const { Schema, model } = require('mongoose');
 const path = require('path');
-const { CATEGORIES } =require('../helpers/constants');
+const { CATEGORIES, STATUS } =require('../helpers/constants');
 const getIsoDateInterval = require('../helpers/getDatesInterval');
 
 const notesSchema = new Schema({
     name: {
         type: String,
-        required: [true, 'category is required']
+        required: [true, 'category is required'],
     },
     category: {
         type: String,
-        required: [true, 'category is required']
+        required: [true, 'category is required'],
+        lowercase:true,
     },
     content: {
         type: String,
-        required: [true, 'category is required']
+        required: [true, 'category is required'],
     },
     dates: {
         type: Array,
@@ -22,6 +23,11 @@ const notesSchema = new Schema({
     },
     icon: {
         type: String
+    },
+    status: {
+        type: String,
+        lowercase:true,
+        enum:['active', 'archived']
     }
 }, { versionKey: false, timestamps: true });
 
@@ -45,7 +51,7 @@ notesSchema.pre('save', function (next) {
             default:
                 currentIcon = 'default.svg';
         }
-        
+        this.status = STATUS.ACTIVE;
         this.icon = path.join('icons', currentIcon);
     }
 

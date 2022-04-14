@@ -1,5 +1,5 @@
 const Joi = require('joi');
-const { MESSAGES, CATEGORIES } = require('../constants');
+const { MESSAGES, CATEGORIES, STATUS } = require('../constants');
 
 const updateNoteReqDataSchema = Joi.object()
     .keys({
@@ -16,7 +16,6 @@ const updateNoteReqDataSchema = Joi.object()
             .valid(...Object.values(CATEGORIES))
             .messages({
                 'string.base': MESSAGES.INVALID_CATEGORY_VALUE,
-                'any.required': MESSAGES.MISSING_CATEGORY,
                 'any.only': MESSAGES.INVALID_CATEGORY_VALUE
             }),
         content: Joi.string()
@@ -24,9 +23,15 @@ const updateNoteReqDataSchema = Joi.object()
             .min(2)
             .messages({
                 'string.base': MESSAGES.INVALID_CONTENT_VALUE,
-                'any.required': MESSAGES.MISSING_CONTENT,
                 'string.min': MESSAGES.INVALID_CONTENT_LENGTH   
-        })
+            }),
+        status: Joi.string()
+            .trim()
+            .valid(...Object.values(STATUS))
+            .messages({
+                'string.base': MESSAGES.INVALID_STATUS_VALUE,
+                'any.only': MESSAGES.INVALID_STATUS_VALUE
+            })
     })
     .messages({
         'object.unknown': MESSAGES.BAD_REQUEST

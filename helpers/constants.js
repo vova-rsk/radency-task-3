@@ -20,6 +20,9 @@ const MESSAGES = {
     INVALID_CONTENT_LENGTH: 'Content value does not meet minimum length (2 charaсters)',
     MISSING_CATEGORY: 'Missing Category field',
     INVALID_CATEGORY_VALUE: 'Invalid Category value',
+    MISSING_STATUS: 'Missing Status field',
+    INVALID_STATUS_VALUE: 'Invalid Status value',
+
  };
 
 const STATUS = {
@@ -28,10 +31,10 @@ const STATUS = {
 };
 
 const CATEGORIES = {
-    TASK: 'Task',
-    RANDOM_THOUGHT: 'Random thought',
-    IDEA: 'Idea',
-    QUOTE:'Quote'
+    TASK: 'task',
+    RANDOM_THOUGHT: 'random thought',
+    IDEA: 'idea',
+    QUOTE:'quote'
 };
 
 module.exports = {

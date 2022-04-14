@@ -45,7 +45,8 @@ router.get('/:id',
 
 router.delete('/:id',
     wrapper(paramsValidationMiddleware),
-    wrapper(removeNoteController));
+    wrapper(removeNoteController)
+);
 
 router.patch(
     '/:id',

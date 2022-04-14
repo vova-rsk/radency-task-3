@@ -13,6 +13,12 @@ const validation = (schema, validationTarget) => {
         validated = schema.validate(req.params);
         break;
       case REQ_VALIDATION_TARGET.BODY:
+        const bodyData = Object.keys(req.body);
+
+        if (bodyData.length === 0) { 
+          throw createError(400, MESSAGES.MISSING_FIELDS);
+        }
+        
         validated = schema.validate(req.body);
 
         if (!validated.error) {
@@ -23,16 +29,9 @@ const validation = (schema, validationTarget) => {
       default:
         throw createError(500, MESSAGES.SERVER_ERROR);
     }
-
+    console.log(validated.error);
     if (validated.error) {
-      const message = validated.error.message;
-      let code = 400;
-
-      if (message === MESSAGES.NOT_FOUND) { 
-        code = 404;
-      }
-
-      throw createError(code, message);
+      throw createError(400, validated.error.message);
     };
 
     next();

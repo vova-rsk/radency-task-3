@@ -1,4 +1,4 @@
-import express, { ErrorRequestHandler, Request, Response } from 'express';
+import express, { ErrorRequestHandler, NextFunction, Request, Response } from 'express';
 import logger from 'morgan';
 import cors from 'cors';
 import 'dotenv/config';
@@ -24,7 +24,7 @@ app.use((req, res) => {
   res.status(404).json({ message: MESSAGES.NOT_FOUND });
 });
 
-app.use((err:IErrorHandler, req:Request, res:Response) => {
+app.use((err:IErrorHandler, req:Request, res:Response, next:NextFunction) => {
   const { status = 500, message = MESSAGES.SERVER_ERROR } = err;
 
   res.status(status).json({

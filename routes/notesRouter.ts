@@ -10,24 +10,24 @@ router.get('/stats', wrapper(controllers.getNotesStatistic));
 router.get('/', wrapper(controllers.getNotesList));
 
 router.post('/',
-    middlewares.addNoteBodyValidation,
+    wrapper(middlewares.addNoteBodyValidation),
     wrapper(controllers.addNote)
 );
 
 router.get('/:id',
-    middlewares.paramsValidation,
+    wrapper(middlewares.paramsValidation),
     wrapper(controllers.getNote)
 );
 
 router.delete('/:id',
-    middlewares.paramsValidation,
+    wrapper(middlewares.paramsValidation),
     wrapper(controllers.removeNote)
 );
 
 router.patch(
     '/:id',
-    middlewares.paramsValidation,
-    middlewares.updateNoteBodyValidation,
+    wrapper(middlewares.paramsValidation),
+    wrapper(middlewares.updateNoteBodyValidation),
     wrapper(controllers.updateNote)
 );
 

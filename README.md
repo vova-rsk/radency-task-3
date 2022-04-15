@@ -35,7 +35,7 @@ response example:
 <pre>
 response example:
     status: "success",
-    code: 201,
+    code: 200,
     result: {
         id: "625981dd2a20ad338af5fd01",
         name: "Car",
@@ -64,7 +64,7 @@ request body:
 <pre>
 response example:
     status: "success",
-    code: 201,
+    code: 200,
     result: {
         id: "625981dd2a20ad338af5fd01",
         name: "Car",
@@ -91,7 +91,7 @@ response example:
 <pre>
 response example:
     status: "success",
-    code: 201,
+    code: 200,
     result: [
         {
             "id": "oW8ZpN-",

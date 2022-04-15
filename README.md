@@ -18,6 +18,7 @@ request body:
 
 <pre>
 response example:
+{
     status: "success",
     code: 201,
     result: {
@@ -30,12 +31,14 @@ response example:
         "iconUrl": "http://localhost:8080/local_grocery_store.svg",
         "status": "active"
     }
+}
 </pre>
 
 #### GET /notes/:id
 
 <pre>
 response example:
+{       
     status: "success",
     code: 200,
     result: {
@@ -48,6 +51,7 @@ response example:
         "iconUrl": "http://localhost:8080/local_grocery_store.svg",
         "status": "active"
     }
+}
 </pre>
 
 #### PATCH /notes/:id
@@ -65,6 +69,7 @@ request body:
 
 <pre>
 response example:
+{   
     status: "success",
     code: 200,
     result: {
@@ -77,21 +82,57 @@ response example:
         "iconUrl": "http://localhost:8080/local_grocery_store.svg",
         "status": "active"
     }
+}
 </pre>
 
 #### DELETE /notes/:id
 
 <pre>
 response example:
+{   
     status: "success",
     code: 200,
     message: "removed successfull"
+}
+</pre>
+
+#### GET /notes
+
+<pre>
+response example:
+{       
+    status: "success",
+    code: 200,
+    result: [
+        {
+            id: "625981dd2a20ad338af5fd01",
+            name: "Car",
+            created: "15/4/2022",
+            category: "task",
+            content: "from 11/02/2022 to 6/6/2022 buy a new car",
+            dates: [ 11/2/2022, 6/6/2022 ],
+            "iconUrl": "http://localhost:8080/local_grocery_store.svg",
+            "status": "active"
+        },
+        {
+            "id": "62581c1c6a4969efa529f644",
+            "name": "The theory of evolution",
+            "created": "14/4/2022",
+            "category": "random thought",
+            "content": "The evolution of the civilazation",
+            "dates": [],
+            "iconUrl": "http://radency-task3.herokuapp.com/icons/psychology.svg",
+            "status": "active"
+        },
+    ]
+}
 </pre>
 
 #### GET /notes/stats
 
 <pre>
-response example:
+{
+    response example:
     status: "success",
     code: 200,
     result: [
@@ -109,6 +150,6 @@ response example:
             "archived": 1,
             "iconUrl": "http://localhost:8080/icons/psychology.svg"
         }
-        ...
     ]
+}
 </pre>

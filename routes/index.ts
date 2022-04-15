@@ -1,1 +1,4 @@
-export { default } from './notesRouter'
+import notesRouter from './notesRouter';
+import staticRouter from './staticRouter';
+
+export { notesRouter, staticRouter };

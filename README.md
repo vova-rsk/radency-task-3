@@ -1,5 +1,7 @@
 # radency-task-3
 
+## HOST: https://radency-task3.herokuapp.com/
+
 ## API:
 
 #### POST /notes

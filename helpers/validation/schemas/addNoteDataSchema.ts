@@ -10,7 +10,8 @@ const addNoteReqDataSchema = Joi.object()
         .messages({
             'string.base': MESSAGES.INVALID_NAME_VALUE,
             'any.required': MESSAGES.MISSING_NAME,
-            'string.min': MESSAGES.INVALID_NAME_LENGTH           
+            'string.min': MESSAGES.INVALID_NAME_LENGTH,
+            'string.empty': MESSAGES.INVALID_NAME_LENGTH
         }),
     category: Joi.string()
         .required()
@@ -28,7 +29,8 @@ const addNoteReqDataSchema = Joi.object()
         .messages({
             'string.base': MESSAGES.INVALID_CONTENT_VALUE,
             'any.required': MESSAGES.MISSING_CONTENT,
-            'string.min': MESSAGES.INVALID_CONTENT_LENGTH   
+            'string.min': MESSAGES.INVALID_CONTENT_LENGTH,
+            'string.empty': MESSAGES.INVALID_CONTENT_LENGTH
         })
     })
     .length(3)

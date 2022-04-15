@@ -6,6 +6,10 @@ const getNotesList = async (urlHost:string) => {
     const notesList = await Note
         .find()
         .select({ updatedAt: 0 });
+    
+    if (!notesList) {
+        return null;
+    }
 
     const updatedNotesList = notesList.map(note => { 
         return {

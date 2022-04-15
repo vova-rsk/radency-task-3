@@ -1,8 +1,6 @@
 import {nanoid} from 'nanoid';
-import createError from 'http-errors';
 import Note from '../model';
 import createUrl from '../helpers/createUrl';
-import { MESSAGES } from '../helpers/constants';
 
 interface IInitEntry { 
     id: string;
@@ -19,7 +17,7 @@ const getStatistic = async (urlHost:string) => {
     const notes = await Note.find().select({ updatedAt: 0 });
 
     if (!notes) { 
-        throw createError(404, MESSAGES.NOT_FOUND);
+        return null;
     }
 
     const statistic=notes.reduce((summary:Summary, note) => {

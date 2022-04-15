@@ -1,6 +1,4 @@
-import createError from 'http-errors';
 import Note from '../model';
-import { MESSAGES } from '../helpers/constants';
 import createUrl from '../helpers/createUrl';
 import datesTransform from '../helpers/datesTransform';
 
@@ -10,7 +8,7 @@ const getNote = async (urlHost: string, id:string) => {
         .select({ updatedAt: 0 });
 
     if (!note) { 
-        throw createError(404, MESSAGES.NOT_FOUND);
+        return null;
     }
 
     const updatedNote = {

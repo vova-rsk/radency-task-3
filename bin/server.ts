@@ -2,15 +2,8 @@ import mongoose from 'mongoose';
 import { MESSAGES } from '../helpers/constants';
 import app from '../app';
 
-let PORT:string|number = '';
-let DB_HOST = '';
-
-if (process.env.DB_HOST && process.env.DB_HOST) {
-  DB_HOST = process.env.DB_HOST;
-  PORT = process.env.PORT || 3000;
-} else {
-  throw new Error("env variables PORT or DB_HOST not set");
-}
+const PORT = Number(process.env.PORT) || 3000;
+const DB_HOST = String(process.env.DB_HOST);
 
 mongoose
   .connect(DB_HOST)

@@ -3,14 +3,15 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "engines": { "node": "16.14.1" },
+  "engines": {
+    "node": "16.14.1"
+  },
   "scripts": {
-    "start": "cross-env NODE_ENV=production node dist/index.js",
+    "start": "cross-env NODE_ENV=production node dist/bin/server.js",
     "start:dev": "cross-env NODE_ENV=development nodemon ./bin/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index",
     "postinstall": "tsc",
-    "watch-node": "nodemon dist/index.js",
+    "watch-node": "nodemon dist/bin/server.js",
     "watch-ts": "tsc -w",
     "deploy": "git add . && git commit -m Heroku && git push heroku main"
   },
@@ -27,7 +28,6 @@
   "homepage": "https://github.com/vova-rsk/radency-task-3#readme",
   "dependencies": {
     "@types/morgan": "^1.9.3",
-    "colors": "^1.4.0",
     "colors.ts": "^1.0.20",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",

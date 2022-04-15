@@ -94,14 +94,18 @@ response example:
     code: 201,
     result: [
         {
-            id: "625981dd2a20ad338af5fd01",
-            name: "Car",
-            created: "15/4/2022",
-            category: "task",
-            content: "from 11/02/2022 to 6/6/2022 buy a new car",
-            dates: [ 11/2/2022, 6/6/2022 ],
-            "iconUrl": "http://localhost:8080/local_grocery_store.svg",
-            "status": "active"
+            "id": "oW8ZpN-",
+            "category": "task",
+            "active": 4,
+            "archived": 2,
+            "iconUrl": "http://localhost:8080/icons/local_grocery_store.svg"
+        },
+        {
+            "id": "p_JLwgM",
+            "category": "random thought",
+            "active": 1,
+            "archived": 1,
+            "iconUrl": "http://localhost:8080/icons/psychology.svg"
         }
         ...
     ]

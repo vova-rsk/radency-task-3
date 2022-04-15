@@ -28,7 +28,6 @@
   "homepage": "https://github.com/vova-rsk/radency-task-3#readme",
   "dependencies": {
     "@types/morgan": "^1.9.3",
-    "colors.ts": "^1.0.20",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "dotenv": "^16.0.0",

@@ -1,4 +1,4 @@
-import db from '../bin/server';
+import { Note } from '../db';
 import createUrl from '../helpers/createUrl';
 import datesTransform from '../helpers/datesTransform';
 import getIsoDateInterval from '../helpers/getDatesInterval';
@@ -15,18 +15,12 @@ const addNote = async (urlHost:string, noteData:INote) => {
     const dates = getIsoDateInterval(content);
     const icon = createIconPath(category);
 
-    const query = {
-        text: 'INSERT INTO notes (name, category, content, dates, icon) VALUES($1, $2, $3, $4, $5) RETURNING *',
-        values: [name,category,content, dates, icon]
-    };
-
-    const result = await db.query(query);
-    const note = result.rows[0];
+    const note = await Note.create({name, category, content, dates, icon});
 
     const addedNote = {
         id:note.id,
         name:note.name,
-        created: datesTransform(note.created_at),
+        created: datesTransform(note.createdAt.toISOString()),
         category:note.category,
         content:note.content,
         dates:datesTransform(note.dates),
@@ -37,4 +31,4 @@ const addNote = async (urlHost:string, noteData:INote) => {
     return addedNote;
 };
 
-export default addNote;
+export default addNote; 

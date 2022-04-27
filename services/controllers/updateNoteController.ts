@@ -10,9 +10,9 @@ const updateNote = async (req:Request, res:Response) => {
 
     const result = await repositories.updateNote(urlHost, id, noteDataToUpdate);
 
-    if (!result) { 
-        throw createError(404, MESSAGES.NOT_FOUND);
-    }
+    // if (!result) { 
+    //     throw createError(404, MESSAGES.NOT_FOUND);
+    // }
 
     res.status(200).json({
         status: 'success',

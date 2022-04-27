@@ -1,6 +1,6 @@
-type TransformFn = (a: string) => string | string[];
+type TransformFn = (a: string | string[]) => string | string[];
 
-const datesTransform:TransformFn = value => {
+const datesTransform: TransformFn = value => {
     const transform = (isoDate:string) => { 
         const date = new Date(isoDate);
         const dateArr = [

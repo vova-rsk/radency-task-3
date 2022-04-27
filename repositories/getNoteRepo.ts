@@ -1,10 +1,9 @@
-import pool from '../bin/server';
+import { Note } from '../db';
 import createUrl from '../helpers/createUrl';
 import datesTransform from '../helpers/datesTransform';
 
 const getNote = async (urlHost: string, id: string) => {
-    const result = await pool.query('SELECT * FROM notes WHERE id=$1', [id]);
-    const note = result.rows[0];
+    const note = await Note.findByPk(id);
 
     if (!note) { 
         return null;
@@ -13,10 +12,10 @@ const getNote = async (urlHost: string, id: string) => {
     const updatedNote = {
         id: note.id,
         name:note.name,
-        created: datesTransform(note.created_at),
+        created: datesTransform(note.createdAt.toISOString()),
         category:note.category,
         content:note.content,
-        dates:datesTransform(note.dates),
+        dates: datesTransform(note.dates),
         iconUrl: createUrl(urlHost, note.icon),
         status:note.status
     }

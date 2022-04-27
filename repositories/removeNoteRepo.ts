@@ -1,8 +1,8 @@
-import db from '../bin/server';
+import { Note } from '../db';
 
 const removeNote = async (id: string) => {
-    const result = await db.query('DELETE FROM notes WHERE id=$1', [id]);
-    const isRemoved = Boolean(result.rowCount);
+    const result = await Note.destroy({ where: { id } });
+    const isRemoved = Boolean(result);
 
     return isRemoved;
 };

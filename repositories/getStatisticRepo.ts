@@ -1,5 +1,5 @@
 import {nanoid} from 'nanoid';
-import db from '../bin/server';
+import { Note } from '../db';
 import createUrl from '../helpers/createUrl';
 
 interface IInitEntry { 
@@ -13,9 +13,7 @@ interface IInitEntry {
 type Summary = IInitEntry[]; 
 
 const getStatistic = async (urlHost:string) => { 
-
-    const result = await db.query('SELECT * FROM notes');
-    const notes = result.rows;
+    const notes = await Note.findAll();
 
     if (!notes) { 
         return null;

@@ -66,3 +66,5 @@ Note.init({
     tableName: 'sequelize_notes',
     timestamps: true,
 });
+
+sequelize.sync();

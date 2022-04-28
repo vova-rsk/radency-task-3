@@ -1,0 +1,30 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres
+    restart: always
+    ports: [5433:5432] 
+    environment: {
+      POSTGRES_DB: postgres,
+      POSTGRES_PASSWORD: 1234
+    }
+
+  node_sq_server:
+    build: .
+    restart: always
+    ports: [8080:8080]
+    depends_on:
+      - db
+    environment: {
+      PORT: 8080,
+      PG_DB: postgres,
+      PG_HOST: db,
+      PG_PORT: 5432,
+      PG_USER: postgres,
+      PG_PASS: 1234
+    }
+
+
+      
+
